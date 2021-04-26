@@ -1,0 +1,10 @@
+name: StaffCommunication-Discord
+author: FishbirdDD
+version: 1
+main: com.fishbirddd.staffcommunicationdiscord.StaffCommunicationDiscord
+depend: [DiscordSRV, StaffCommunication]
+
+commands:
+  staffcommunicationdiscord:
+    aliases: [scd]
+    usage: /scd [args]

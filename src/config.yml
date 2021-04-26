@@ -1,0 +1,30 @@
+# StaffCommunication <-> DiscordSRV
+# By FishbirdDD
+
+# If you need support, please find the Discord link on this plugin's Spigot page
+
+messages:
+  # Variables: 
+  # %discord% - Discord name
+  # %minecraft% - Minecraft name
+  # %message% - Message
+  minecraft:
+    staff: "&8[&bStaffChat&8] &6&lDISCORD &d%discord% (%minecraft%): &b%message%"
+    admin: "&8[&cAdminChat&8] &6&lDISCORD &d%discord% (%minecraft%): &b%message%"
+    
+  discord:
+    staff: "%minecraft% (%discord%) > %message%"
+    admin: "%minecraft% (%discord%) > %message%"
+    staffbc: "@everyone **BROADCAST** [%minecraft% (%discord%)] > **%message%**"
+    adminbc: "@everyone **BROADCAST** [%minecraft% (%discord%)] > **%message%**"
+    broadcast: "**BROADCAST** > %message%"
+    
+  # If the Minecraft and Discord accounts are unlinked, then %minecraft% or %discord% will
+  # not be able to show their name. You can decide what you want to show up instead below.
+  defaults:
+    minecraft: ""
+    discord: ""
+
+# Whether or not players need to have their Discord and Minecraft accounts linked to use
+# the staff chat (only applies in Discord).
+needlink: true
