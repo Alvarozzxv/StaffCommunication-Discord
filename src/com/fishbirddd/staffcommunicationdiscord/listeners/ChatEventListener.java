@@ -13,6 +13,9 @@ import github.scarsz.discordsrv.DiscordSRV;
 import github.scarsz.discordsrv.dependencies.jda.api.entities.TextChannel;
 import github.scarsz.discordsrv.util.DiscordUtil;
 
+import net.dv8tion.jda.api.EmbedBuilder;
+import java.awt.Color;
+
 public class ChatEventListener implements Listener {
 	
 	private StaffCommunicationDiscord getInstance() {
@@ -83,10 +86,23 @@ public class ChatEventListener implements Listener {
 		
 	}
 	
-	private void sendDiscordMessage(TextChannel channel, String message) {
-		
-		DiscordUtil.sendMessage(channel, message);
-		
+	private void sendDiscordMessage(TextChannel channel, String message, Player sender) {
+    EmbedBuilder embed = new EmbedBuilder();
+    embed.setColor(new Color(0, 153, 204)); // Establece el color del embed
+    embed.setDescription(message); // Establece la descripción con el mensaje
+
+    // Añade más campos al embed si es necesario
+    embed.addField("Minecraft", sender.getName(), true);
+    String discId = DiscordSRV.getPlugin().getAccountLinkManager().getDiscordId(sender.getUniqueId());
+    if (discId != null) {
+        String discName = DiscordUtil.getMemberById(discId).getEffectiveName();
+        embed.addField("Discord", discName, true);
+    }
+
+    // Envía el mensaje embed al canal de Discord
+    channel.sendMessageEmbeds(embed.build()).queue();
+}
+
 	}
 
 }
